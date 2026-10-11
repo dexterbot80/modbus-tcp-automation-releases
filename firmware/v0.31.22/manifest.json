@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.22",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Controller date/time in the overview; Network and MQTT grouped together. Responsive layout and configuration preserved.",
+  "images": {
+    "relay": {
+      "size": 1272912,
+      "sha256": "16dd389a11d5d45c878d1e1b2087046a46ce8d4652b5f79f7f13c60da6e66c68",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.22/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1272912,
+      "sha256": "d1b139a224eaf8609a4e4969faffcbe10b3133303137e6c0b43426d42d3be384",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.22/esp32p4-thermostat.bin"
+    }
+  }
+}
