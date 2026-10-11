@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.24",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Makita slogan in header/footer, linked Neco Energies credit and symmetric status cards. Configuration preserved.",
+  "images": {
+    "relay": {
+      "size": 1276000,
+      "sha256": "a5eb6312db28e7e99a355ed4b03f5ab1f8aea1d42bd5105811736231415520a2",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.24/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1276016,
+      "sha256": "d15052eeed03854ee4298f5faba11657f19b76363ef7cd1ec020b60e54d31023",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.24/esp32p4-thermostat.bin"
+    }
+  }
+}
