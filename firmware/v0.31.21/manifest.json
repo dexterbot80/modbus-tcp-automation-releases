@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.21",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Responsive desktop, portrait tablet and mobile interface. Adaptive cards, tablet settings navigation, touch controls and stable hover. OTA preserves existing configuration.",
+  "images": {
+    "relay": {
+      "size": 1268896,
+      "sha256": "e783b947f02099dfa6aa85708158b1575c198ddca6279ca76c95aa0addd8f60a",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.21/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1268896,
+      "sha256": "ca364f63496128515f95dda4923dc2d0532d59232970141e5b9b24588ea0b93d",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.21/esp32p4-thermostat.bin"
+    }
+  }
+}
