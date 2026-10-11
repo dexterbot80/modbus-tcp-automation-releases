@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.25",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Continuous information bar with uniform typography for time, uptime and status values. Configuration preserved.",
+  "images": {
+    "relay": {
+      "size": 1276320,
+      "sha256": "004b015fa20921f6940acfb01f7dae3dd8057797868576258e098022c484121d",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.25/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1276320,
+      "sha256": "70a3d0ee5b32eab9fd1f897e5f079a194c247ceb11feef656b754c0285e3e9f7",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.25/esp32p4-thermostat.bin"
+    }
+  }
+}
