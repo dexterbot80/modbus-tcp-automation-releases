@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.20",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Admin firmware update and initial OTA support. First installation requires USB migration.",
+  "images": {
+    "relay": {
+      "size": 1260944,
+      "sha256": "226659b9d8f28e43304ca17c4ad5e792cf38c06dbd2c4c6fcf280b386132132d",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.20/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1260944,
+      "sha256": "8a08ff43c27e6bb4e87e697f03ab83b2c26a69e18eef2c760ee93862b9e579a4",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.20/esp32p4-thermostat.bin"
+    }
+  }
+}
