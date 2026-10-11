@@ -1,0 +1,54 @@
+name: Publish firmware v0.31.23
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'firmware/v0.31.23/**'
+      - '.github/workflows/publish-v0.31.23.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-v0.31.23
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release files
+        run: |
+          python3 - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          root=Path('firmware/v0.31.23')
+          doc=json.loads((root/'manifest.json').read_text())
+          assert doc['version']=='0.31.23' and doc['layout']=='p4-4m-ota-v1'
+          assert set(doc['images'])=={'relay','thermostat'}
+          for profile, asset in doc['images'].items():
+              name=f'esp32p4-{profile}.bin'
+              data=(root/name).read_bytes()
+              assert len(data)==asset['size'] and len(data)<=0x1e0000
+              assert hashlib.sha256(data).hexdigest()==asset['sha256']
+              assert data[0]==0xe9 and int.from_bytes(data[12:14],'little')==18
+              assert f'MODBUS_OTA_V1|esp32p4|{profile}|p4-4m-ota-v1|0.31.23-arduino|END'.encode()+b'\0' in data
+              assert asset['url']==f'https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.23/{name}'
+          print('Both images match the manifest.')
+          PY
+      - name: Publish complete release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if gh release view v0.31.23 --json isDraft --jq .isDraft > release-state.txt 2>/dev/null; then
+            if [ "$(cat release-state.txt)" != true ]; then
+              echo "Existing published release left unchanged."
+              exit 0
+            fi
+          else
+            gh release create v0.31.23 --draft --target "$GITHUB_SHA" --title "ESP32-P4 Automation v0.31.23" --notes-file firmware/v0.31.23/RELEASE_NOTES.md
+          fi
+          gh release upload v0.31.23 firmware/v0.31.23/manifest.json firmware/v0.31.23/esp32p4-relay.bin firmware/v0.31.23/esp32p4-thermostat.bin --clobber
+          gh release edit v0.31.23 --draft=false --latest

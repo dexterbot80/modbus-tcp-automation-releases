@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "0.31.23",
+  "hardware": "esp32p4",
+  "layout": "p4-4m-ota-v1",
+  "config_schema": 5,
+  "thermostat_schema": 4,
+  "notes": "Simplified Makita / Smart control branding and Neco Energies SRL footer. Configuration preserved.",
+  "images": {
+    "relay": {
+      "size": 1255616,
+      "sha256": "06f84be6b18ee9b8e54f5426c35e46ecfd1608ef96f4d6e5fcf6ea05c46f515e",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.23/esp32p4-relay.bin"
+    },
+    "thermostat": {
+      "size": 1255616,
+      "sha256": "47722f4df6216ac7c6e3ae7ca9ee489f505f5b87668599f26df181e06dde6e6a",
+      "url": "https://github.com/dexterbot80/modbus-tcp-automation-releases/releases/download/v0.31.23/esp32p4-thermostat.bin"
+    }
+  }
+}
